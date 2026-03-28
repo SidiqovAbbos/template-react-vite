@@ -19,8 +19,10 @@ These files are pre-configured and correct. Overwriting them will break the buil
 | `public/vite.svg` | Default icon |
 | `.github/workflows/deploy-pages.yml` | GitHub Actions deploy pipeline |
 | `.github/copilot-instructions.md` | These instructions |
+| `src/main.tsx` | BrowserRouter with `basename={import.meta.env.BASE_URL}` already configured |
 
 **You MAY update `index.html`** — change `<title>Prototype</title>` to match the project name from PLAN.md.
+**You MAY update `src/main.tsx`** — but you MUST keep the `<BrowserRouter basename={import.meta.env.BASE_URL}>` wrapper intact.
 
 ---
 
@@ -30,7 +32,6 @@ The files below currently contain stubs. Write all of them completely:
 
 ```
 src/
-├── main.tsx              ← BrowserRouter entry point (see critical note below)
 ├── App.tsx               ← Root component with <Routes>
 ├── index.css             ← Global styles (keep @import "tailwindcss" as line 1)
 ├── pages/                ← One file per route from PLAN.md
@@ -85,6 +86,8 @@ createRoot(document.getElementById('root')!).render(
 | **Pages** | One `src/pages/*.tsx` file + one `<Route>` per page listed |
 | **Features** | Interactive behaviors — implement with `useState`/`useReducer`/hooks |
 | **Design Preferences** | Override the default color palette below with client's brand |
+| **Data & Auth** | What data the app uses and how users authenticate — use mock data unless PLAN.md says otherwise. If auth is mentioned, build a realistic login UI with mock validation |
+| **Integrations** | External services — build UI that looks connected but uses mock data. Show realistic API response shapes in `src/lib/mock-data.ts` |
 
 ---
 
